@@ -44,10 +44,10 @@ Your home to be in the middle of what you care about. Find new quality stories e
 * Logged in members receive a customized feed showing the stories from the writers they follow.
 * Dynamically updates with new stories to always have the newest stories on top of your feed.
 
-### Claps
+### Applause
 
-* Logged in members can give claps to stories they have found impactful.
-* The claps count is displayed on the left side of each story.
+* Logged in members can applause stories they have found impactful.
+* The applause count of a story or a response is displayed on the left side of each story/response.
 
 ### Save Stories
 
