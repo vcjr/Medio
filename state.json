@@ -1,0 +1,50 @@
+{
+    entities: {
+        users: {
+            1: {
+                id: 1,
+                username: "John Richard",
+                short_bio: "I love crickets and cereal."
+            },
+            2: {
+                id: 2,
+                username: "Lucas Solo",
+                short_bio: "Far into the milkyway, one day I'll be..."
+            }
+            3: {
+                id: 3,
+                username: "Simon Pickard",
+                short_bio: "Holy macoroni I love writing about food."
+            },
+            4: {
+                id: 4,
+                username: "Peter Stew",
+                short_bio: "If the wolrd was any bigger our brains would've already messed it up."
+            }
+
+        },
+        stories: {
+
+        },
+        responses: {
+
+        },
+        applauses: {
+
+        },
+        saved_stories: {
+
+        },
+        highlights: {
+
+        },
+        follows: {
+
+        }
+    },
+    "session: {
+        currentUser: {
+            id: 1
+        }
+    }
+}

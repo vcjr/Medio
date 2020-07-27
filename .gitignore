@@ -32,3 +32,7 @@ tmp
 
 # Ignore all Node Modules
 node_modules
+
+MVP.md
+Schema.md
+State.json
