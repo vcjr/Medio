@@ -1,50 +1,158 @@
+```Javascript
 {
     entities: {
         users: {
             1: {
                 id: 1,
-                username: "John Richard",
-                short_bio: "I love crickets and cereal."
+                name: "John Richard",
+                email: "johnR@medio.com",
+                short_bio: "I love crickets and cereal.",
+                authoredStoryIds: [2,3],
+                respondedIds: [2, 4],
+                applausedIds: [1 , 3],
+                bookmarkedIds: [1],
+                highlightedIds: [1],
+                followedIds: [1]
             },
             2: {
                 id: 2,
-                username: "Lucas Solo",
-                short_bio: "Far into the milkyway, one day I'll be..."
+                name: "Lucas Solo",
+                email: "lSolo@medio.com",
+                short_bio: "Far into the milkyway, one day I'll be...",
+                authoredStoryIds: [1,4],
+                respondedIds: [1, 3, 5],
+                applausedIds: [2 , 4],
+                bookmarkedIds: [2],
+                highlightedIds: [],
+                followedIds: []
             }
             3: {
                 id: 3,
-                username: "Simon Pickard",
-                short_bio: "Holy macoroni I love writing about food."
+                name: "Simon Pickard",
+                email: "simonPick@medio.com",
+                short_bio: "Holy macoroni I love writing about food.",
+                authoredStoryIds: [5,7],
+                respondedIds: [2],
+                applausedIds: [5],
+                bookmarkedIds: [3],
+                highlightedIds: [],
+                followedIds: [2]
             },
             4: {
                 id: 4,
-                username: "Peter Stew",
-                short_bio: "If the wolrd was any bigger our brains would've already messed it up."
+                name: "Peter Stew",
+                email: "peterstew@medio.com",
+                short_bio: "If the wolrd was any bigger our brains would've already messed it up.",
+                authoredStoryIds: [6],
+                respondedIds: [1, 2, 3, 5],
+                applausedIds: [6,7],
+                bookmarkedIds: [1, 3],
+                highlightedIds: [],
+                followedIds: [3]
             }
-
         },
         stories: {
-
+            1: {
+                id: 1,
+                title: "The Munchkin Kingdom",
+                body: "Once upon a time...",
+                responsesId: [3]
+            },
+            2: {
+                id: 2,
+                title: "How Did the Yellow Brick Road Change My Life?",
+                body: "It started like any other day...",
+                responsesId: [1]
+            }
+            3: {
+                id: 3,
+                title: "Three Little Devs and The New Framework",
+                body: "It's crazy how now a days, a new framework pop's up...",
+                responsesId: [2]
+            }
         },
         responses: {
-
+            1: {
+                id: 1,
+                responseable_id: 2,
+                responseable_type: "story",
+                body: "Very thoughtful story...",
+            },
+            2: {
+                id: 2,
+                responseable_id: 2,
+                responseable_type: "story",
+                body: "Very thoughtful story..."
+            }
+            3: {
+                id: 3,
+                responseable_id: 2,
+                responseable_type: "response",
+                body: "I loved the story too..."
+            }
         },
         applauses: {
-
+            1: {
+                id: 1,
+                applauseable_id: 1,
+                applauseable_type: "story",
+            },
+            2: {
+                id: 2,
+                applauseable_id: 3,
+                applauseable_type: "story",
+            },
+            3: {
+                id: 3,
+                applauseable_id: 2,
+                applauseable_type: "response",
+            }
         },
-        saved_stories: {
-
+        bookmarks: {
+            1: {
+                id: 1,
+                story_id: 1
+            },
+            2: {
+                id: 2,
+                story_id: 1
+            },
+            3: {
+                id: 3,
+                story_id: 2
+            },
         },
         highlights: {
-
+            1: {
+                id: 1,
+                story_id: 2,
+                text: "Dorothy was the happiest after this moment. It defined her..."
+            }
+            2: {
+                id: 2,
+                story_id: 1,
+                text: "All the little munchkins hurried away..."
+            }
         },
         follows: {
-
+            1: {
+                id: 1,
+                author_id: 2
+            },
+            2: {
+                id: 2,
+                author_id: 1
+            },
+            3: {
+                id: 3,
+                author_id: 1
+            },
         }
     },
-    "session: {
+    session: {
         currentUser: {
             id: 1
         }
     }
 }
+```
