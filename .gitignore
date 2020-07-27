@@ -32,7 +32,9 @@ tmp
 
 # Ignore all Node Modules
 node_modules
-node_modules/
+bundle.js
+bundle.js.map
+
 
 MVP.md
 Schema.md
