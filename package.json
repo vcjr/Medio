@@ -25,5 +25,22 @@
     "redux": "^4.0.5",
     "webpack": "^4.44.0",
     "webpack-cli": "^3.3.12"
-  }
+  },
+  "description": "Your home to be in the middle of what you care about. Find new quality stories each day that interest you. Keep track of your favorite writers, and share the stories that impacted you most. Simple, sleek and immersive reading experience. No pesky ads or distractions so you can enjoy your content as you see fit.",
+  "version": "1.0.0",
+  "main": "webpack.config.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vcjr/Medio.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/vcjr/Medio/issues"
+  },
+  "homepage": "https://github.com/vcjr/Medio#readme"
 }
