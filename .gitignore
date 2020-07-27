@@ -32,6 +32,7 @@ tmp
 
 # Ignore all Node Modules
 node_modules
+node_modules/
 
 MVP.md
 Schema.md
