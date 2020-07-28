@@ -10,7 +10,7 @@ class Api::SessionsController < ApplicationController
       # TODO Remember to change this render after test to send and set the user state to how the sample state looks
       render "api/users/show"
     else
-      render json: ["Invalid Email/Password"]
+      render json: ["Invalid Email/Password Combination"], status: 401
     end
   end
 
