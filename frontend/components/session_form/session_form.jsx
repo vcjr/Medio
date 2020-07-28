@@ -6,9 +6,9 @@ class SessionForm extends React.Component {
   constructor(props){
     super(props)
 
-    this.state = {
-      email: "",
-      password: ""
+    this.state = { 
+        email: "",
+        password: ""
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -17,13 +17,16 @@ class SessionForm extends React.Component {
   // NOTE: Handle subitting session form 
   handleSubmit(e){
     e.preventDefault();
-    const user = Object.assign({}, this.state);
+    
+    const user = {
+      user: this.state
+    };
     this.props.processForm(user);
   }
 
   //NOTE: Update fields dynamically by setting state
   updateField(field){
-    return e => this.setState({ [field]: e.currentTarget.value })
+    return e => this.setState({ [field]: e.currentTarget.value} );
   }
 
   render(){
@@ -62,23 +65,26 @@ class SessionForm extends React.Component {
       }
     }
 
+    const { email, password } = this.state;
+
     return (
+
       <session-form>
         <h3>{this.props.formType}</h3>
         { formTopSection(this.props.formType) }
         <form onSubmit={this.handleSubmit}>
-
+          {/* //NOTE: REMEMBER TO ADD ERRORS HERE TO RENDER */}
           <label htmlFor="email">Your email</label>
           <input type="text" 
             onChange={this.updateField('email')} 
-            value={this.state.email}
+            value={email}
             id="email"
           />
 
           <label htmlFor="password">Your password</label>
           <input type="password" 
             onChange={this.updateField('password')} 
-            value={this.state.password}
+            value={password}
             id="password"
           />
           <input type="submit" className="session-submit" value="Continue"/>
