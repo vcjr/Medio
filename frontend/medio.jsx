@@ -5,7 +5,8 @@ import configureStore from './store/store';
 import Root from './components/root';
 
 //! TESTING START ~ REMOVE AFTER DONE !!!!!!!
-import { signup, login, logout} from './util/session_api_util';
+import { signup, logout} from './util/session_api_util';
+import { login } from './actions/session_actions';
 //! TESTING END   ~ REMOVE AFTER DONE !!!!!!!
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -13,9 +14,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const store = configureStore();
 
   //! TESTING ONLY ~ REMOVE AFTER DONE !!!!!!!
-  window.signup = signup;
+  // window.signup = signup;
   window.login = login;
-  window.logout = logout;
+  // window.logout = logout;
   window.getState = store.getState;
   window.dispatch = store.dispatch;
   //! TESTING END   ~ REMOVE AFTER DONE !!!!!!!
