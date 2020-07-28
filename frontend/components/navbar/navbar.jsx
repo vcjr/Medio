@@ -6,12 +6,6 @@ class Navbar extends React.Component {
   constructor(props){
     super(props);
 
-    this.handleLogout = this.handleLogout.bind(this);
-  }
-
-  handleLogout(e){
-    e.preventDefault();
-    return e => this.props.logout();
   }
 
   render(){
@@ -23,7 +17,7 @@ class Navbar extends React.Component {
           <> 
             <li>Hi, {currentUser.name}</li>
             //NOTE: Later create another menu that will include user profile pick and when clicked will work well
-            <li><button to='/' onClick={this.handleLogout}>Sign Out</button></li>
+            <li><button to='/' onClick={logout}>Sign Out</button></li>
           </>
         );
       } else {
@@ -42,6 +36,7 @@ class Navbar extends React.Component {
         <Link to="/" className="medio-logo">Medio</Link>
 
         <ul className="right-nav">
+          <li><a href="https://github.com/vcjr/">Github Icon Here</a></li>
           { right_nav() }  
         </ul>
         <h2>This is where the Nav Component Will Go :D</h2>
