@@ -1,9 +1,9 @@
 import * as SessionAPIUtil from '../util/session_api_util';
 
 // NOTE: Constants
-export default RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
-export default LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER';
-export default RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
+export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
+export const LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER';
+export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
 
 // NOTE: Regular Action Creators
 const receiveCurrentUser = currentUser => ({
