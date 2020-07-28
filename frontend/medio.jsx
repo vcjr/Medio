@@ -2,10 +2,11 @@ import React from 'react';
 import ReactDom from 'react-dom';
 
 import configureStore from './store/store';
+import Root from './components/root';
 
-//! TESTING ONLY ~ REMOVE AFTER DONE !!!!!!!
+//! TESTING START ~ REMOVE AFTER DONE !!!!!!!
 import { signup, login, logout} from './util/session_api_util';
-//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//! TESTING END   ~ REMOVE AFTER DONE !!!!!!!
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
@@ -17,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.logout = logout;
   window.getState = store.getState;
   window.dispatch = store.dispatch;
-  //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  //! TESTING END   ~ REMOVE AFTER DONE !!!!!!!
 
-  ReactDom.render(<h1>Medio Is Up</h1>, root)
+  ReactDom.render(<Root store={store}/>, root);
 });
