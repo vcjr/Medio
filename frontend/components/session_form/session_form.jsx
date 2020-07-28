@@ -70,19 +70,18 @@ class SessionForm extends React.Component {
 
           <label htmlFor="email">Your email</label>
           <input type="text" 
-            onChange={updateField('email')} 
+            onChange={this.updateField('email')} 
             value={this.state.email}
             id="email"
           />
 
           <label htmlFor="password">Your password</label>
           <input type="password" 
-            onChange={updateField('password')} 
+            onChange={this.updateField('password')} 
             value={this.state.password}
             id="password"
           />
-
-          <button className="session-submit" value="Continue" />
+          <input type="submit" className="session-submit" value="Continue"/>
         </form>
         { formBottomSection(this.props.formType) }
       </session-form>

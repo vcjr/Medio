@@ -39,7 +39,6 @@ class Navbar extends React.Component {
           <li><a href="https://github.com/vcjr/">Github Icon Here</a></li>
           { right_nav() }  
         </ul>
-        <h2>This is where the Nav Component Will Go :D</h2>
       </nav>
     );
   }
