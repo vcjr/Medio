@@ -76,7 +76,7 @@ class SessionForm extends React.Component {
                 <h2>Sign up with email</h2>
               </div>
               <div id="session-form-subheader-text">
-                <p>Enter your email address to create an account.</p>
+                <h4>Enter your email address to create an account.</h4>
               </div>
             </>
           );
@@ -87,7 +87,7 @@ class SessionForm extends React.Component {
                 <h2>Sign in with email</h2>
               </div>
               <div id="session-form-subheader-text">
-                <p>Enter the email address associated with your account.</p>
+                <h4>Enter the email address associated with your account.</h4>
               </div>
             </>
           );
@@ -113,15 +113,22 @@ class SessionForm extends React.Component {
 
     const { email, password, isModalVisible } = this.state;
 
-    return (
+    const addErrorReceived = () => {
+      if (this.props.errors.length > 1) {
+        return "error-received";
+      } else {
+        return "";
+      }
+    }
 
+    return (
 
       <modal className={`modal-container ${isModalVisible ? "" : "hidden" }`} id="modal-container">
         <session-form className="" id="session-form-container">
           { this.renderCloseIcon() }
           { formTopSection(this.props.formType) }
           <form onSubmit={this.handleSubmit} id="session-form">
-            <label htmlFor="email" className="form-field-label">Your email</label>
+            <label htmlFor="email" className="form-field-label" id={addErrorReceived()}>Your email</label>
             <input type="text" 
               onChange={this.updateField('email')} 
               value={email}
@@ -129,7 +136,7 @@ class SessionForm extends React.Component {
               className="form-field"
             />
 
-            <label htmlFor="password" className="form-field-label">Your password</label>
+            <label htmlFor="password" className="form-field-label" id={addErrorReceived()}>Your password</label>
             <input type="password" 
               onChange={this.updateField('password')} 
               value={password}
