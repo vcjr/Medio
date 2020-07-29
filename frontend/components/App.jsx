@@ -14,6 +14,9 @@ const App = () => (
     </header>
     <h1>Welcome to Medio! REMOVE WHEN SPLASH CREATED</h1>
     <Switch>
+      
+      // main navcontainer
+
       <AuthRoute exact path="/signin" component={SigninFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
     </Switch>

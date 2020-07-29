@@ -29,6 +29,20 @@ class SessionForm extends React.Component {
     return e => this.setState({ [field]: e.currentTarget.value});
   }
 
+  renderErrors() {
+    return (
+      <ul>
+        {
+          this.props.errors.map((error, i) => (
+            <li key={`error-${i}`}>
+              {error}
+            </li>
+          ))
+        }
+      </ul>
+    );
+  }
+
   render(){
 
     const formTopSection = (formType) => {
@@ -73,7 +87,7 @@ class SessionForm extends React.Component {
         <h3>{this.props.formType}</h3>
         { formTopSection(this.props.formType) }
         <form onSubmit={this.handleSubmit}>
-          {/* //NOTE: REMEMBER TO ADD ERRORS HERE TO RENDER */}
+          { this.renderErrors() }
           <label htmlFor="email">Your email</label>
           <input type="text" 
             onChange={this.updateField('email')} 
