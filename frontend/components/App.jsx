@@ -9,13 +9,16 @@ import { AuthRoute } from '../util/route_util';
 
 const App = () => (
   <app>
-    <header>
-      <NavbarContainer />
-    </header>
-    <Switch>
-      <main>
+    
+      <header>
+        <NavbarContainer />
+      </header>
+      <Switch>  
+      <modal className="modal-container" id="modal-container">
         <AuthRoute exact path="/signin" component={SigninFormContainer} />
         <AuthRoute exact path="/signup" component={SignupFormContainer} />
+      </modal>
+      <main>
       </main>
     </Switch>
   

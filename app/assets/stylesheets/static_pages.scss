@@ -1,6 +1,10 @@
 // Place all the styles related to the StaticPages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// Button Color: #03A87C
+// font heading Color: #292929
+
 @font-face {
   font-family: 'Noe Bold';
   src:url('Noe Text Bold.eot');
@@ -15,6 +19,8 @@
   font-weight: normal;
   font-style: normal;
 }
+
+@import 'font-awesome';
 
 * {
   box-sizing: border-box;
@@ -46,7 +52,7 @@ nav {
 }
 
 li, a, button {
-  font-family: "Noe Book",-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;;
+  font-family: "Times New Roman";
 }
 
 .right-nav {
@@ -55,6 +61,8 @@ li, a, button {
 
 .right-nav li {
   display: inline-block;
+  font-size: 16px;
+  padding-left: 30px;
 }
 
 #medio-logo {
@@ -82,3 +90,128 @@ a:hover {
 a:active {
   color: #000000;
 }
+
+#github-icon {
+  font-size: 30px;
+}
+
+#get-started-navlink {
+  background-color: #03A87C;
+  color: white;
+
+  padding: 8px 16px 8px 16px;
+  border-radius: 3px;
+  border-width: 1.25px;
+}
+
+#get-started-navlink:hover {
+  background-color: #029E74;
+}
+// Session Form Modal 
+
+//! Modal Container
+.modal-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  // margin: 0;
+  background-color: rgba(255, 255, 255, 0.90);
+}
+
+#modal-container {
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
+  min-height: 100vh;
+  // margin: 0;
+  display: none;
+  
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vh;
+}
+
+//! Session Form Container
+#session-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 10px 0px;
+  width: 670px;
+  padding: 44px 56px;
+  max-width: 50%;
+}
+
+#session-form-container h2 {
+  color: rgba(0, 0, 0, 0.8);
+  font-size: 28px;
+  margin: 0;
+  margin-bottom: 30px;
+}
+
+#session-form {
+  display: flex;
+  align-items: center;
+  max-width: 100%;
+  flex-direction: column;
+  margin-top: 50px;
+}
+
+#session-form-subheader {
+  color: rgba(41, 41, 41, 1);
+}
+
+#session-form-subheader-text {
+  font-size: 18px;
+  text-align: center;
+  colo: rgba(41, 41, 41, 1)
+}
+
+.form-field {
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid black;
+  border-radius: 2px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-align: center;
+  outline: none;
+}
+
+.form-field:hover {
+  cursor: text;
+  border: 0;
+  border-bottom: 1px solid black;
+  border-radius: 2px;
+}
+.form-field:active {
+  border: 0;
+  border-bottom: 1px solid black;
+  border-radius: 2px;
+}
+.form-field-label {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  // color: rgba(41, 41, 41, 1);
+  color: #292929;
+  font-size: 14px;
+}
+
+.session-submit {
+  background-color: black;
+  color: white;
+  font-size: 15px;
+  padding: 8px 16px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 0;
+  text-decoration: none;
+}
+
+// Session Errors

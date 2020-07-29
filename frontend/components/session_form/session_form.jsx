@@ -31,7 +31,7 @@ class SessionForm extends React.Component {
 
   renderErrors() {
     return (
-      <ul>
+      <ul className="form-session-errors">
         {
           this.props.errors.map((error, i) => (
             <li key={`error-${i}`}>
@@ -49,15 +49,25 @@ class SessionForm extends React.Component {
       switch (formType) {
         case "Sign Up":
           return (
-            <div className="session-form-subheader">
-              <h2>Sign up with email</h2>
-            </div>
+            <>
+              <div id="session-form-subheader">
+                <h2>Sign up with email</h2>
+              </div>
+              <div id="session-form-subheader-text">
+                <p>Enter your email address to create an account.</p>
+              </div>
+            </>
           );
         case "Log In":
           return (
-            <div className="session-form-subheader">
-              <h2>Sign in with email</h2>
-            </div>
+            <>
+              <div id="session-form-subheader">
+                <h2>Sign in with email</h2>
+              </div>
+              <div id="session-form-subheader-text">
+                <p>Enter the email address associated with your account.</p>
+              </div>
+            </>
           );
       }
     };
@@ -83,23 +93,24 @@ class SessionForm extends React.Component {
 
     return (
 
-      <session-form>
-        <h3>{this.props.formType}</h3>
+      <session-form id="session-form-container">
         { formTopSection(this.props.formType) }
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} id="session-form">
           { this.renderErrors() }
-          <label htmlFor="email">Your email</label>
+          <label htmlFor="email" className="form-field-label">Your email</label>
           <input type="text" 
             onChange={this.updateField('email')} 
             value={email}
             id="email"
+            className="form-field"
           />
 
-          <label htmlFor="password">Your password</label>
+          <label htmlFor="password" className="form-field-label">Your password</label>
           <input type="password" 
             onChange={this.updateField('password')} 
             value={password}
             id="password"
+            className="form-field"
           />
           <input type="submit" className="session-submit" value="Continue"/>
         </form>

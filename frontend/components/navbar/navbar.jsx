@@ -35,7 +35,7 @@ class Navbar extends React.Component {
         <Link to="/" id="medio-logo">Medio</Link>
 
         <ul className="right-nav">
-          <li><a href="https://github.com/vcjr/">Github Icon Here</a></li>
+          <li><a href="https://github.com/vcjr/"><i className="fa fa-github" id="github-icon"></i></a></li>
           { right_nav() }  
         </ul>
       </nav>
