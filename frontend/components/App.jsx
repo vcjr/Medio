@@ -5,15 +5,19 @@ import NavbarContainer from './navbar/navbar_container';
 import SigninFormContainer from './session_form/signin_form_container';
 import SignupFormContainer from './session_form/signup_form_container';
 
+import { AuthRoute } from '../util/route_util';
+
 const App = () => (
   <main-app>
     <header>
       <NavbarContainer />
     </header>
-    <h1>Welcome to Medio!</h1>
-
-    <Route path="/signin" component={SigninFormContainer} />
-    <Route path="/signup" component={SignupFormContainer} />
+    <h1>Welcome to Medio! REMOVE WHEN SPLASH CREATED</h1>
+    <Switch>
+      <AuthRoute exact path="/signin" component={SigninFormContainer} />
+      <AuthRoute exact path="/signup" component={SignupFormContainer} />
+    </Switch>
+  
   </main-app>
 );
 
