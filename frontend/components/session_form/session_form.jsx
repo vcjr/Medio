@@ -26,7 +26,7 @@ class SessionForm extends React.Component {
 
   //NOTE: Update fields dynamically by setting state
   updateField(field){
-    return e => this.setState({ [field]: e.currentTarget.value} );
+    return e => this.setState({ [field]: e.currentTarget.value});
   }
 
   render(){
