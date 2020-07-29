@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 class SessionForm extends React.Component {
 
@@ -8,11 +8,13 @@ class SessionForm extends React.Component {
 
     this.state = { 
         email: "",
-        password: ""
+        password: "",
+        isModalVisible: true,
+        redirect: false
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleDemoUser = this.handleDemoUser.bind(this);
+    this.toggleBox = this.toggleBox.bind(this);
   }
 
   // NOTE: Handle subitting session form 
@@ -25,17 +27,12 @@ class SessionForm extends React.Component {
     this.props.processForm(user);
   }
 
-  handleDemoUser(e){
-    e.preventDefault();
-    this.props.demoUser();
-  }
-
   //NOTE: Update fields dynamically by setting state
   updateField(field){
     return e => this.setState({ [field]: e.currentTarget.value});
   }
 
-  renderErrors() {
+  renderErrors(){
     return (
       <ul className="form-session-errors">
         {
@@ -46,6 +43,25 @@ class SessionForm extends React.Component {
           ))
         }
       </ul>
+    );
+  }
+
+  toggleBox(){
+    this.setState(prevState => ({ isModalVisible: !prevState.isModalVisible, redirect: true}));
+  }
+
+  renderCloseIcon(){
+
+    const { redirect } = this.state;
+
+    if (redirect) {
+      return <Redirect to='/'/>;
+    }
+
+    return (
+      <div id="session-form-close">
+        <span onClick={this.toggleBox} className="slash-X-regular">X</span>
+      </div>
     );
   }
 
@@ -95,34 +111,38 @@ class SessionForm extends React.Component {
       }
     }
 
-    const { email, password } = this.state;
+    const { email, password, isModalVisible } = this.state;
 
     return (
 
-      <session-form id="session-form-container">
-        { formTopSection(this.props.formType) }
-        <form onSubmit={this.handleSubmit} id="session-form">
-          <label htmlFor="email" className="form-field-label">Your email</label>
-          <input type="text" 
-            onChange={this.updateField('email')} 
-            value={email}
-            id="email"
-            className="form-field"
-          />
 
-          <label htmlFor="password" className="form-field-label">Your password</label>
-          <input type="password" 
-            onChange={this.updateField('password')} 
-            value={password}
-            id="password"
-            className="form-field"
-          />
-          { this.renderErrors() }
-          <input type="submit" className="session-submit" value="Continue"/>
-        </form>
-          <button className="session-submit" onClick={ this.props.demoUser }>Demo User</button>
-        { formBottomSection(this.props.formType) }
-      </session-form>
+      <modal className={`modal-container ${isModalVisible ? "" : "hidden" }`} id="modal-container">
+        <session-form className="" id="session-form-container">
+          { this.renderCloseIcon() }
+          { formTopSection(this.props.formType) }
+          <form onSubmit={this.handleSubmit} id="session-form">
+            <label htmlFor="email" className="form-field-label">Your email</label>
+            <input type="text" 
+              onChange={this.updateField('email')} 
+              value={email}
+              id="email"
+              className="form-field"
+            />
+
+            <label htmlFor="password" className="form-field-label">Your password</label>
+            <input type="password" 
+              onChange={this.updateField('password')} 
+              value={password}
+              id="password"
+              className="form-field"
+            />
+            { this.renderErrors() }
+            <input type="submit" className="session-submit" value="Continue"/>
+          </form>
+            <button className="session-submit" onClick={ this.props.demoUser }>Demo User</button>
+          { formBottomSection(this.props.formType) }
+        </session-form>
+      </modal>
     );
   }
 }

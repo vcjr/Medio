@@ -21,6 +21,7 @@
 }
 
 @import 'font-awesome';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
 * {
   box-sizing: border-box;
@@ -32,10 +33,6 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-header {
-  // Keep here for later
 }
 
 nav {
@@ -115,7 +112,6 @@ a:active {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  // margin: 0;
   background-color: rgba(255, 255, 255, 0.90);
 }
 
@@ -132,10 +128,16 @@ a:active {
   left: 0;
   height: 100vh;
   width: 100vh;
+
+}
+
+#moda-container:hover {
+  transition: all 0.3s ease 0s;
 }
 
 //! Session Form Container
 #session-form-container {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -146,6 +148,7 @@ a:active {
   width: 670px;
   padding: 44px 56px;
   max-width: 50%;
+  
 }
 
 #session-form-container h2 {
@@ -170,7 +173,7 @@ a:active {
 #session-form-subheader-text {
   font-size: 18px;
   text-align: center;
-  colo: rgba(41, 41, 41, 1)
+  color: rgba(41, 41, 41, 1)
 }
 
 .form-field {
@@ -198,7 +201,6 @@ a:active {
 .form-field-label {
   padding-top: 10px;
   padding-bottom: 10px;
-  // color: rgba(41, 41, 41, 1);
   color: #292929;
   font-size: 14px;
 }
@@ -216,4 +218,37 @@ a:active {
   letter-spacing: 0.5px;
 }
 
+
 // Session Errors
+
+// Close modal button
+#session-form-close {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 430px;
+  width: 29px;
+  height: 29px;
+  font-size: 19px;
+  // color: darkgray;
+}
+
+
+.slash-X-regular {
+  position: fixed;
+  // top: 10px;
+  color: darkgray;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.slash-X-regular:hover  {
+  color: black;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+
+.hidden {
+  display: none;
+}
