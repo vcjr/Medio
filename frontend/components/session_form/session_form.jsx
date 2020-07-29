@@ -96,7 +96,6 @@ class SessionForm extends React.Component {
       <session-form id="session-form-container">
         { formTopSection(this.props.formType) }
         <form onSubmit={this.handleSubmit} id="session-form">
-          { this.renderErrors() }
           <label htmlFor="email" className="form-field-label">Your email</label>
           <input type="text" 
             onChange={this.updateField('email')} 
@@ -112,6 +111,7 @@ class SessionForm extends React.Component {
             id="password"
             className="form-field"
           />
+          { this.renderErrors() }
           <input type="submit" className="session-submit" value="Continue"/>
         </form>
         { formBottomSection(this.props.formType) }

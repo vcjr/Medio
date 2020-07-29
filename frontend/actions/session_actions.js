@@ -40,3 +40,10 @@ export const signup = user => dispatch => {
       errors => (dispatch(receiveErrors(errors.responseJSON)))
     );
 };
+
+// NOTE: Setup demo user here and in APIUtil's like how Anthony showed 
+// NOTE: Make sure that when this action is dispatch it also removes the css display:flex on the css properties for the session form
+export const demoUser = () => dispatch => {
+  return SessionAPIUtil.demoUserLogin()
+    .then(user => dispatch(receiveCurrentUser(user)));
+};

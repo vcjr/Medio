@@ -21,3 +21,16 @@ export const logout = () => {
     url: 'api/session'
   });
 };
+
+export const demoUserLogin = () => {
+  return $.ajax({
+    method: 'POST',
+    url: 'api/users',
+    data: {
+      user: { 
+        email: "demouser@email.com",
+        password: "hunter1234"
+      }
+    }
+  });
+};
