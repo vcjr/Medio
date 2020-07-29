@@ -12,6 +12,7 @@ class SessionForm extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDemoUser = this.handleDemoUser.bind(this);
   }
 
   // NOTE: Handle subitting session form 
@@ -22,6 +23,11 @@ class SessionForm extends React.Component {
       user: this.state
     };
     this.props.processForm(user);
+  }
+
+  handleDemoUser(e){
+    e.preventDefault();
+    this.props.demoUser();
   }
 
   //NOTE: Update fields dynamically by setting state
@@ -114,6 +120,7 @@ class SessionForm extends React.Component {
           { this.renderErrors() }
           <input type="submit" className="session-submit" value="Continue"/>
         </form>
+          <button className="session-submit" onClick={ this.props.demoUser }>Demo User</button>
         { formBottomSection(this.props.formType) }
       </session-form>
     );
