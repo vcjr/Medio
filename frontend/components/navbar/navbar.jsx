@@ -16,7 +16,7 @@ class Navbar extends React.Component {
         return (
           <> 
             <li>Hi, {currentUser.name}</li>
-            //NOTE: Later create another menu that will include user profile pick and when clicked will work well
+            {/* //NOTE: Later create another menu that will include user profile pick and when clicked will work well */}
             <li><button to='/' onClick={logout}>Sign Out</button></li>
           </>
         );
@@ -32,8 +32,7 @@ class Navbar extends React.Component {
 
     return (
       <nav>
-        {/*NOTE Render Medio's Logo also get the font and add it to this*/}
-        <Link to="/" className="medio-logo">Medio</Link>
+        <Link to="/" id="medio-logo">Medio</Link>
 
         <ul className="right-nav">
           <li><a href="https://github.com/vcjr/">Github Icon Here</a></li>
