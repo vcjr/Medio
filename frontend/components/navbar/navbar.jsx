@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 // import ProfileMenuContainer from './profile_menu_container';
 import ProfileMenu from './profile_menu';
@@ -9,6 +9,24 @@ class Navbar extends React.Component {
 
   }
 
+  NavItem(props) {
+    const [open, setOpen] = useState(false);
+
+    return (
+      <> 
+        <li className="profile-picture-menu" id="profile-menu-popup">
+          <img className='profile-pic' 
+            id='profile-pic-small' 
+            src={window.profileImg} 
+            onClick={() => setOpen(!open)}
+          />
+
+          { open && props.children}
+        </li> 
+      </>
+    );
+  }
+
   render(){
     const { currentUser, logout } = this.props;
 
@@ -16,10 +34,9 @@ class Navbar extends React.Component {
       if (currentUser) {
         return (
           <> 
-            <li className="profile-picture-menu" id="profile-menu-popup">
-              <img className='profile-pic' id='profile-pic-small' src={window.profileImg} />
-            </li> 
-            <ProfileMenu currentUser={currentUser} logout={logout} />
+            <this.NavItem>
+              <ProfileMenu currentUser={currentUser} logout={logout} />
+            </this.NavItem>
           </>
         );
       } else {

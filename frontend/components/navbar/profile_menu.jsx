@@ -1,21 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 
-const ProfileMenu = props => (
-  <div className="profile-menu-container">
-      <div className="profile-menu-popup-inner">
-        <ul className="profile-menu-link-container">
-          <li>Hi, {props.currentUser.name}</li>
-          <li className="profile-menu-link-singout">
-            <a id="get-started-navlink" to='/' onClick={props.logout}>
-              Sign Out
-            </a>
-          </li>
-        </ul>
-      </div>
-      <div className="profile-menu-popup-arrow"></div>
-  </div>
-);
+const ProfileMenu = props => {
+  
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div className="profile-menu-container">
+        <div className="profile-menu-popup-arrow">
+          <i class="fa fa-angle-up"></i>
+        </div>
+        <div className="profile-menu-popup-inner">
+          <ul className="profile-menu-link-container">
+            <li id="profile-info">
+              <img className='profile-pic'  
+                src={window.profileImg} 
+              />
+              <div id="profile-info-name">
+                <span>{props.currentUser.name}</span>
+                <p>{`@${props.currentUser.name}`}</p>
+              </div>
+            </li>
+            <hr/>
+            <li className="profile-menu-link-singout">
+              <a id="profile-sign-out-link" to='/' onClick={props.logout}>
+                Sign Out
+              </a>
+            </li>
+          </ul>
+        </div>
+    </div>
+  )
+};
 
 export default ProfileMenu;
 
