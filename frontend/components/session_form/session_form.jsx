@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
-
+import { validateEmail } from '../../util/validate_email';
 class SessionForm extends React.Component {
 
   constructor(props){
@@ -24,7 +24,12 @@ class SessionForm extends React.Component {
     const user = {
       user: this.state
     };
-    this.props.processForm(user);
+
+    if (validateEmail(this.state.email)) {
+      return this.props.processForm(user);
+    } else {
+      
+    }
   }
 
   //NOTE: Update fields dynamically by setting state
@@ -113,6 +118,7 @@ class SessionForm extends React.Component {
 
     const { email, password, isModalVisible } = this.state;
 
+    // Debug why it isnt updating the color of the field labels
     const addErrorReceived = () => {
       if (this.props.errors.length > 1) {
         return "error-received";
