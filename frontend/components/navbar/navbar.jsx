@@ -16,6 +16,9 @@ class Navbar extends React.Component {
       if (currentUser) {
         return (
           <> 
+            <li className="profile-picture-menu" id="profile-menu-popup">
+              <img className='profile-pic' id='profile-pic-small' src={window.profileImg} />
+            </li> 
             <ProfileMenu currentUser={currentUser} logout={logout} />
           </>
         );
@@ -35,7 +38,7 @@ class Navbar extends React.Component {
           <Link to="/" id="medio-logo">Medio</Link>
           <ul className="right-nav">
             <li><a href="https://github.com/vcjr/"><i className="fa fa-github" id="github-icon"></i></a></li>
-            { right_nav() }  
+              { right_nav() }
           </ul>
         </div>
       </nav>
