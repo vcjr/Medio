@@ -37,12 +37,10 @@ main {
 }
 
 header {
-  // display: flex;
   align-items: center;
 }
 
 nav {
-  overflow: hidden;
   margin: 0 auto;
   display: block;
   height: 65px;
@@ -312,14 +310,19 @@ a:active {
   height: 34px;
 }
 
+.profile-picture-menu {
+  position: relative;
+}
+
 .profile-menu-container {
   background-color: white;
   overflow: hidden;
   z-index: 777;
   position: absolute;
   padding: 15px;
-  top: 50px;
-  right: 15px;
+  top: 40px;
+  right: 0px;
+  left: -183px
 }
 
 .profile-menu-popup-inner {
