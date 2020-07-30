@@ -28,7 +28,7 @@ class SessionForm extends React.Component {
     if (validateEmail(this.state.email)) {
       return this.props.processForm(user);
     } else {
-      
+      return this.props.addError(["Invalid Email"]);
     }
   }
 
@@ -55,6 +55,7 @@ class SessionForm extends React.Component {
     this.setState(prevState => ({ isModalVisible: !prevState.isModalVisible, redirect: true}));
   }
 
+  // Instead of closing with a button you just watch for the user clickingt
   renderCloseIcon(){
 
     const { redirect } = this.state;
@@ -120,7 +121,7 @@ class SessionForm extends React.Component {
 
     // Debug why it isnt updating the color of the field labels
     const addErrorReceived = () => {
-      if (this.props.errors.length > 1) {
+      if (this.props.errors.length > 0) {
         return "error-received";
       } else {
         return "";
