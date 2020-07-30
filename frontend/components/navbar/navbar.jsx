@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+// import ProfileMenuContainer from './profile_menu_container';
+import ProfileMenu from './profile_menu';
 class Navbar extends React.Component {
 
   constructor(props){
@@ -15,9 +16,7 @@ class Navbar extends React.Component {
       if (currentUser) {
         return (
           <> 
-            <li>Hi, {currentUser.name}</li>
-            {/* //NOTE: Later create another menu that will include user profile pick and when clicked will work well */}
-            <li><a id="get-started-navlink" to='/' onClick={logout}>Sign Out</a></li>
+            <ProfileMenu currentUser={currentUser} logout={logout} />
           </>
         );
       } else {
