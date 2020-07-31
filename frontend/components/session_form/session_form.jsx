@@ -4,7 +4,7 @@ import { validateEmail } from '../../util/validate_email';
 class SessionForm extends React.Component {
 
   constructor(props){
-    super(props)
+    super(props);
 
     this.state = { 
         email: "",
