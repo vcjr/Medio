@@ -24,8 +24,13 @@ class Api::StoriesController < ApplicationController
     end
 
     def destroy
-      Story.find(params[:id])
-      render json: "Successfully deleted story"
+      @story = Story.find(params[:id])
+      unless current_user && @story.author_id == current_user.id
+        @story.delete
+        render json: "Successfully deleted story"
+      else
+        render json: @user.errors.full_messages, status: 422
+      end
     end
 
     private
