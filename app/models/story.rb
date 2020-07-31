@@ -34,4 +34,5 @@ class Story < ApplicationRecord
 
     minutes > 0 ? minutes : minutes = 1
   end
+  
 end
