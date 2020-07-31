@@ -377,7 +377,7 @@ a:active {
   box-sizing: border-box;
   position: absolute;
   font-size: 20px;
-  top: 1px;
+  top: -4px;
   left: 222px;
 }
 
@@ -402,10 +402,12 @@ a:active {
 
 #profile-info span {
   font-weight: bold;
+  font-size: 14px;
 }
 
 #profile-info-name {
   padding-left: 15px;
+  font-size: 13px;
   
 }
 #profile-info-name p {
@@ -423,6 +425,7 @@ hr {
 }
 
 #profile-sign-out-link {
+  font-size: 15px;
   color: #a803a8;
 
 }
