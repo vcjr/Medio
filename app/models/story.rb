@@ -21,7 +21,17 @@ class Story < ApplicationRecord
   validates :author_id, :title, :body, presence: true
 
   #NOTE: Add associations for this and the user 
-  belongs_to :user,
+  belongs_to :author,
+  primary_key: :id,
   foreign_key: :author_id,
-  class: :User
+  class_name: :User
+
+  def reading_time
+    char_count = body.length
+    word_count = body.split(" ").length;
+    words_per_minute = 233
+    minutes = word_count / words_per_minute
+
+    minutes > 0 ? minutes : minutes = 1
+  end
 end
