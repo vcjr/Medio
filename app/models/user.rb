@@ -52,4 +52,9 @@ class User < ApplicationRecord
     SecureRandom::urlsafe_base64
   end
 
+  //! Associations
+  has_many :stories,
+  foreign_key: :author_id,
+  class: :Story
+
 end

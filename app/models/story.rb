@@ -19,4 +19,9 @@
 # also draft
 class Story < ApplicationRecord
   validates :author_id, :title, :body, presence: true
+
+  #NOTE: Add associations for this and the user 
+  belongs_to :user,
+  foreign_key: :author_id,
+  class: :User
 end
