@@ -82,7 +82,7 @@ class SessionForm extends React.Component {
                 <h2>Sign up with email</h2>
               </div>
               <div id="session-form-subheader-text">
-                <h4>Enter your email address to create an account.</h4>
+                <p>Enter your email address to create an account.</p>
               </div>
             </>
           );
@@ -93,7 +93,7 @@ class SessionForm extends React.Component {
                 <h2>Sign in with email</h2>
               </div>
               <div id="session-form-subheader-text">
-                <h4>Enter the email address associated with your account.</h4>
+                <p>Enter the email address associated with your account.</p>
               </div>
             </>
           );
@@ -105,13 +105,13 @@ class SessionForm extends React.Component {
         case "Sign Up":
           return (
             <div className="session-form-link">
-              <p>Already have an account? <Link to="/signin">Sign in</Link></p>
+              <p>Already have an account? <Link className="ssf-link" to="/signin">Sign in</Link></p>
             </div>
           );
         case "Log In":
           return (
             <div className="session-form-link">
-              <p>No account? <Link to="/signup">Create one</Link></p>
+              <p>No account? <Link className="ssf-link" to="/signup">Create one</Link></p>
             </div>
           );
       }
@@ -153,8 +153,13 @@ class SessionForm extends React.Component {
             { this.renderErrors() }
             <input type="submit" className="session-submit" value="Continue"/>
           </form>
-            <button className="session-submit" onClick={ this.props.demoUser }>Demo User</button>
+            <button className="session-submit demo-user-btn" onClick={ this.props.demoUser }>Demo User</button>
           { formBottomSection(this.props.formType) }
+          <div className="disclaimer">
+            <p>
+              To access this Medium clone please do not use our own personal information. Preferably use the demo login for easier access to explore the website. Enjoy checking out this Medium clone!
+            </p>
+          </div>
         </session-form>
       </modal>
     );
