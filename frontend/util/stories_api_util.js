@@ -28,7 +28,7 @@ export const fetchStories = () => {
   });
 };
 
-export const fetchStory = storyId => {
+export const fetchStory = (storyId) => {
   return $.ajax({
     method: 'GET',
     url: `api/stories/${storyId}`

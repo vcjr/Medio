@@ -14,6 +14,11 @@ class Api::SessionsController < ApplicationController
     end
   end
 
+  # def show
+  #   @user = User.find_by(id: params[:id])
+  #   render "api/users/#{@user.id}"
+  # end
+
   def destroy
     @user = current_user
     
