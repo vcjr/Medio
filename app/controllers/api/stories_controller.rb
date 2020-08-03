@@ -10,6 +10,7 @@ class Api::StoriesController < ApplicationController
       @story = Story.find_by(id: params[:id])
     end
 
+    # Set current user verificationas owner to be able to go to the create / update
     def create
       @story = Story.new(story_params)
 
@@ -20,6 +21,7 @@ class Api::StoriesController < ApplicationController
       end
     end
 
+    # Set current user verificationas owner to be able to go to the create / update
     def update
     end
 
