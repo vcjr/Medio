@@ -23,6 +23,13 @@ class Api::StoriesController < ApplicationController
 
     # Set current user verificationas owner to be able to go to the create / update
     def update
+      @story = Story.find_by(id: params[:id])
+
+      unless current_user && @story.author_id == current_user.id
+        render @story
+      else
+        render json: @user.errors.full_messages, status: 422
+      end
     end
 
     def destroy
