@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 // import ProfileMenuContainer from './profile_menu_container';
 import ProfileMenu from './profile_menu';
 class Navbar extends React.Component {
-
   constructor(props){
     super(props);
 
@@ -20,7 +19,19 @@ class Navbar extends React.Component {
             src={window.profileImg} 
             onClick={() => setOpen(!open)}
           />
+          { open && props.children}
+        </li> 
+      </>
+    );
+  }
 
+  StoryItem(props) {
+    const [open, setOpen] = useState(false);
+
+    return (
+      <> 
+        <li className="story-menu" id="profile-menu-popup">
+          <i onClick={() => setOpen(!open)} class="fa fa-ellipsis-h"></i>
           { open && props.children}
         </li> 
       </>
@@ -29,6 +40,23 @@ class Navbar extends React.Component {
 
   render(){
     const { currentUser, logout } = this.props;
+
+    const story_nav = () => {
+      if(currentUser) {
+        return (
+          <>
+            <this.StoryItem>
+            </this.StoryItem>
+          </>
+        )
+      } else {
+        return (
+          <>
+            <span>Testing</span>
+          </>
+        )
+      }
+    };
 
     const right_nav = () => {
       if (currentUser) {
@@ -54,8 +82,9 @@ class Navbar extends React.Component {
         <div className="nav-section">
           <Link to="/" id="medio-logo">Medio</Link>
           <ul className="right-nav">
+            { story_nav() }
             <li><a href="https://github.com/vcjr/"><i className="fa fa-github" id="github-icon"></i></a></li>
-              { right_nav() }
+            { right_nav() }
           </ul>
         </div>
       </nav>
