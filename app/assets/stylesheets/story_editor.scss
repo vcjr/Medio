@@ -1,5 +1,28 @@
-story-title {
-  background-color: green;
+main {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.story-title {
+  // background-color: green;
+  padding-top: 10px;
+  font-size: 42px;
+  // margin: 10px;
+  width: 700px;
+}
+
+.story-subtitle {
+  // background-color: green;
+  padding-top: 26px;
+  // margin: 10px;
+  width: 700px;
+}
+
+story-body {
+  // background-color: blue;
   padding: 10px;
   margin: 10px;
+  width: 700px;
 }

@@ -37,14 +37,21 @@ class StoryEditor extends React.Component {
       <main>
         {/* // Story Title Editor */}
         <Editor 
-          tag="story-title"
+          tag="h3"
+          className="story-title"
           text={this.state.title}
           onChange={this.updateField("title")}
-          options={defaultOptions}
+          options={{toolbar: {buttons: ['h2', 'h3', 'quote']}, placeholder: {text: 'Title'}}}
         />
-        <br/>
+        {/* <br/> */}
         {/* // Subtitle Editor */}
-
+        <Editor 
+          tag="p"
+          className="story-subtitle"
+          text={this.state.title}
+          onChange={this.updateField("subtitle")}
+          options={{toolbar: {buttons: ['bold', 'italic', ]}, placeholder: {text: 'Subtitle'}}}
+        />
 
         {/* // Main Article Editor */}
         <Editor
