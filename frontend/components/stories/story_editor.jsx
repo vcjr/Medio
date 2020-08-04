@@ -1,5 +1,9 @@
 import React from 'react';
-import editor from '../../util/story_editor_util';
+require('medium-editor/dist/css/medium-editor.css');
+require('medium-editor/dist/css/themes/default.css');
+
+import { defaultOptions } from '../../util/story_editor_util';
+import Editor from 'react-medium-editor';
 
 class StoryEditor extends React.Component {
   constructor(props){
@@ -11,21 +15,50 @@ class StoryEditor extends React.Component {
       published_date: null,
       title: "",
       subtitle: "",
-      body: "",
+      body: " ",
       title_draft: "",
       body_draft: "",
+      editor: null
     };
+
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(text, medium){
+    return this.setState({body: text});
+  }
+
+  updateField(field){
+    return e => this.setState({ [field]: e.currentTarget.value});
   }
 
   render() {
     return (
-      <>
-        <h3>Title</h3>
-        <p>Enter your text here...</p>
-        <p>{this.state.author_id}</p>
-      </>
+      <main>
+        {/* // Story Title Editor */}
+        <Editor 
+          tag="story-title"
+          text={this.state.title}
+          onChange={this.updateField("title")}
+          options={defaultOptions}
+        />
+        <br/>
+        {/* // Subtitle Editor */}
+
+
+        {/* // Main Article Editor */}
+        <Editor
+          tag="story-body"
+          text={this.state.body}
+          onChange={this.handleChange}
+          options={defaultOptions}
+        />
+      </main>
     );
   }
 }
 
+//{ toolbar: { buttons: ['bold', 'italic', 'underline'] },
+// placeholder: {text: 'Tell your story'}
+// }
 export default StoryEditor;

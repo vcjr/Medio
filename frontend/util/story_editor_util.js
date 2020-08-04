@@ -1,6 +1,6 @@
 import MediumEditor from 'medium-editor';
 
-const defaultOptions = {
+export const defaultOptions = {
   toolbar: {
     buttons: [
         'bold',
@@ -49,4 +49,8 @@ const defaultOptions = {
 
 export const createNewEditor = (mainElement, options = defaultOptions) => {
   return new MediumEditor(mainElement, options);
+};
+
+export const createPlainNewEditor = (mainElement) => {
+  return new MediumEditor(mainElement);
 };
