@@ -427,9 +427,15 @@ hr {
 #profile-sign-out-link {
   font-size: 15px;
   color: #a803a8;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
 
 }
 
 #profile-sign-out-link:hover {
   color: #a803a8ca;
+}
+
+#profile-menu-link-regular {
+  font-size: 15px;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
 }

@@ -8,7 +8,7 @@ const ProfileMenu = props => {
   return (
     <div className="profile-menu-container">
         <div className="profile-menu-popup-arrow">
-          <i class="fa fa-angle-up"></i>
+          <i className="fa fa-angle-up"></i>
         </div>
         <div className="profile-menu-popup-inner">
           <ul className="profile-menu-link-container">
@@ -20,6 +20,10 @@ const ProfileMenu = props => {
                 <span>{props.currentUser.name}</span>
                 <p>{`@${props.currentUser.name}`}</p>
               </div>
+            </li>
+            <hr/>
+            <li>
+              <Link id="profile-menu-link-regular" to="/stories/new-story">New Story</Link>
             </li>
             <hr/>
             <li className="profile-menu-link-singout">
