@@ -7,9 +7,9 @@ const storyErrorsReducer = (currentState = [], action) => {
     case RECEIVE_STORY_ERRORS:
       return action.errors;
     case RECEIVE_STORY:
-      return [];
+      return action.story;
     case RECEIVE_STORIES:
-      return [];  
+      return action.stories;  
     default:
       return currentState;
   }

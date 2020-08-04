@@ -9,19 +9,20 @@ class StoryEditor extends React.Component {
   constructor(props){
     super(props);
 
-    this.state = {
-      author_id: this.props.currentUserId,
-      published: false,
-      published_date: null,
-      title: "",
-      subtitle: "",
-      body: " ",
-      title_draft: "",
-      body_draft: "",
-      editor: null
-    };
+    this.state = this.props.story;
+    
+    // {}
+    this.timerId = null;
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleTitle = this.handleTitle.bind(this);
+  }
+
+  componentDidMount(){
+    if(this.props.fetchStory){
+      this.props.fetchStory(this.props.storyId);
+      this.setState(this.props.story);
+    }
   }
 
   handleChange(text, medium){
@@ -29,10 +30,34 @@ class StoryEditor extends React.Component {
   }
 
   updateField(field){
-    return e => this.setState({ [field]: e.currentTarget.value});
+    return value => this.setState({ [field]: value});
+  }
+
+  handleTitle(){
+
+    // Write an if state if the pathname I have at the moment is equal to '/stories/new-story'
+    // Then send out the ajax request to submit this post and redirect me to the proper url with the new id of this post
+
+    return value => {
+      // debugger
+      this.setState({ title: value });
+
+      if (this.timerId){
+        clearTimeout(this.timerId);
+      }
+
+      this.timerId = setTimeout(() => {
+        // This will be the function to call to make a ajax request to the backend
+        console.log('Send an ajax request');
+      }, 2000);
+    };
   }
 
   render() {
+    // debugger
+    if (this.props.story === undefined) {
+      return null;
+    }
     return (
       <main>
         {/* // Story Title Editor */}
@@ -40,7 +65,7 @@ class StoryEditor extends React.Component {
           tag="h3"
           className="story-title"
           text={this.state.title}
-          onChange={this.updateField("title")}
+          onChange={this.handleTitle()}
           options={{toolbar: {buttons: ['h2', 'h3', 'quote']}, placeholder: {text: 'Title'}}}
         />
         {/* <br/> */}
@@ -48,7 +73,7 @@ class StoryEditor extends React.Component {
         <Editor 
           tag="p"
           className="story-subtitle"
-          text={this.state.title}
+          text={this.state.subtitle}
           onChange={this.updateField("subtitle")}
           options={{toolbar: {buttons: ['bold', 'italic', ]}, placeholder: {text: 'Subtitle'}}}
         />

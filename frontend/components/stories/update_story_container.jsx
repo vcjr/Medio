@@ -1,31 +1,19 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { createStory } from '../../util/stories_api_util';
+import { updateStory, fetchStory } from '../../actions/story_actions';
 import StoryEditor from './story_editor';
 
-
 const mapStateToProps = (state, ownProps) => {
-
-  const newStory = {
-    author_id: state.session.id,
-    published: false,
-    published_date: null,
-    title: " ",
-    subtitle: " ",
-    body: " ",
-    title_draft: " ",
-    body_draft: " "
-  };
-
   return {
     currentUserId: state.session.id,
-    story: newStory,
-    storyId: null
+    story: state.entities.stories[ownProps.match.params.storyId],
+    storyId: ownProps.match.params.storyId
   };
 };
 
 const mapDispatchToProps = dispatch => ({
-  publish: story => dispatch(createStory(story))
+  publish: story => dispatch(updateStory(story)),
+  fetchStory: storyId => dispatch(fetchStory(storyId))
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(StoryEditor));

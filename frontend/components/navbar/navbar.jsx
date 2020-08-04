@@ -1,37 +1,53 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 // import ProfileMenuContainer from './profile_menu_container';
 import ProfileMenu from './profile_menu';
+import StoryMenu from './story_menu';
+
 class Navbar extends React.Component {
   constructor(props){
     super(props);
 
+    this.state = {
+      // If this is a number should be the id of the current post we are editing
+      currentStoryId: this.props.pathName.split("/").pop()
+    };
+    
+  } 
+
+  handlePublish(e){
+    e.preventDefault();
+
+    this.props.publish(this.props.stories[this.state.currentStoryId]);
   }
 
+  // Nav Item
   NavItem(props) {
     const [open, setOpen] = useState(false);
-
+  
     return (
       <> 
         <li className="profile-picture-menu" id="profile-menu-popup">
           <img className='profile-pic' 
             id='profile-pic-small' 
-            src={window.profileImg} 
+            src={window.profileImg}
             onClick={() => setOpen(!open)}
           />
+
           { open && props.children}
         </li> 
       </>
     );
   }
 
+  // Story Nav Items
   StoryItem(props) {
     const [open, setOpen] = useState(false);
 
     return (
       <> 
-        <li className="story-menu" id="profile-menu-popup">
-          <i onClick={() => setOpen(!open)} class="fa fa-ellipsis-h"></i>
+        <li onClick={() => setOpen(!open)} className="story-menu" id="profile-menu-popup">
+          <i className="fa fa-ellipsis-h"></i>
           { open && props.children}
         </li> 
       </>
@@ -39,20 +55,21 @@ class Navbar extends React.Component {
   }
 
   render(){
-    const { currentUser, logout } = this.props;
+    const { currentUser, logout, publish } = this.props;
 
     const story_nav = () => {
-      if(currentUser) {
+      if(currentUser && this.props.pathName === '/stories/new-story') {
         return (
           <>
+            <button id="story-publish-btn" onClick={e => this.handlePublish(e)}>Publish</button>
             <this.StoryItem>
+              <StoryMenu currentUser={currentUser} publish={publish} />
             </this.StoryItem>
           </>
         )
       } else {
         return (
           <>
-            <span>Testing</span>
           </>
         )
       }
