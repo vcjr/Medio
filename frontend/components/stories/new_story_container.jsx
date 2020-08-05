@@ -20,7 +20,8 @@ const mapStateToProps = (state, ownProps) => {
   return {
     currentUserId: state.session.id,
     story: newStory,
-    storyId: null
+    storyId: null,
+    pathName: ownProps.location.pathname
   };
 };
 

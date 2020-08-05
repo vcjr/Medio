@@ -7,7 +7,8 @@ const mapStateToProps = (state, ownProps) => {
   return {
     currentUserId: state.session.id,
     story: state.entities.stories[ownProps.match.params.storyId],
-    storyId: ownProps.match.params.storyId
+    storyId: ownProps.match.params.storyId,
+    pathName: ownProps.location.pathname
   };
 };
 

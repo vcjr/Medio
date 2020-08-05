@@ -1,4 +1,6 @@
 import * as StoryAPIUtil from '../util/stories_api_util';
+import React from 'react';
+import { Redirect } from 'react-router-dom';
 
 // NOTE: Constants
 export const RECEIVE_STORY = "RECEIVE_STORY";
@@ -58,4 +60,13 @@ export const fetchStories = () => dispatch => {
     .then(stories => dispatch(receiveStories(stories)),
       errors => (dispatch(receiveErrors(errors.responseJSON)))
     );
+};
+
+
+// New Story debounce 
+export const debounceNewStory = story => dispatch => {
+  return StoryAPIUtil.createStory(story)
+    .then(story => dispatch(receiveStory(story)),
+      errors => (dispatch(receiveErrors(errors.responseJSON)))
+    ).then(story => <Redirect to={`/stories/${story.id}/edit`} />)
 };

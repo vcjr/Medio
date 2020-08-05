@@ -1,7 +1,5 @@
 import { RECEIVE_STORY, RECEIVE_STORIES } from "../actions/story_actions";
 
-
-
 const storiesReducer = (currentState = {}, action) => {
   Object.freeze(currentState);
 
