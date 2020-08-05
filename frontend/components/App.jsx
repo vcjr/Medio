@@ -9,7 +9,7 @@ import UpdateStoryContainer from './stories/update_story_container';
 import ShowStoryContainer from './stories/show_story_container';
 import SplashContainer from './splash/splash';
 
-import { AuthRoute, ProtectedRoute } from '../util/route_util';
+import { AuthRoute, ProtectedRoute, PublishedStoryRoute } from '../util/route_util';
 
 const App = () => (
   <div>
@@ -22,6 +22,7 @@ const App = () => (
         <AuthRoute exact path="/signup" component={SignupFormContainer} />
         <ProtectedRoute exact path="/stories/new-story" component={NewStoryContainer}/>
         <Route exact path="/stories/:storyId" component={ShowStoryContainer}/>
+        {/* <PublishedStoryRoute exact path="/stories/:storyId" component={ShowStoryContainer}/> */}
         <ProtectedRoute path="/stories/:storyId/edit" component={UpdateStoryContainer}/>
 
 

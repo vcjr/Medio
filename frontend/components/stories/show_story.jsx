@@ -17,6 +17,14 @@ class ShowStory extends React.Component {
       });
   }
 
+  componentDidUpdate(prevProps){
+    if (prevProps.story !== this.props.story) {
+      if (this.props.story && this.props.story.published !== true) {
+        return this.props.history.push("/");
+      }
+    }
+  }
+
   renderStory() {
     if (this.state !== null) {
       let title = this.state.title ||this.props.story.title;

@@ -53,9 +53,6 @@ class StoryEditor extends React.Component {
   }
 
   handleTitle(){
-
-    // Write an if state if the pathname I have at the moment is equal to '/stories/new-story'
-    // Then send out the ajax request to submit this post and redirect me to the proper url with the new id of this post
     if (this.props.pathName === "/stories/new-story") {
       return value => {
         this.setState({ title: value });
@@ -67,9 +64,6 @@ class StoryEditor extends React.Component {
         const newStory = Object.assign({}, this.state);
 
         this.timerId = setTimeout(() => {
-          // This will be the function to call to make a ajax request to the backend
-          // console.log('Send an ajax request');
-          // debugger
           this.props.debounceNewStory(newStory);
         }, 1500);
       };
@@ -154,7 +148,4 @@ class StoryEditor extends React.Component {
   }
 }
 
-//{ toolbar: { buttons: ['bold', 'italic', 'underline'] },
-// placeholder: {text: 'Tell your story'}
-// }
 export default StoryEditor;
