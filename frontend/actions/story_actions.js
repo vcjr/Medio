@@ -66,7 +66,14 @@ export const fetchStories = () => dispatch => {
 // New Story debounce 
 export const debounceNewStory = story => dispatch => {
   return StoryAPIUtil.createStory(story)
-    .then(story => dispatch(receiveStory(story)),
+    .then(story => {
+      dispatch(receiveStory(story));
+      return story; // We return the story as the arguement for the second promise
+    },
       errors => (dispatch(receiveErrors(errors.responseJSON)))
-    ).then(story => <Redirect to={`/stories/${story.id}/edit`} />)
+    ).then(story => {
+      window.location.hash = `#/stories/${story.id}/edit`; 
+      // `/stories/${story.id}/edit`
+      // debugger;
+    });
 };

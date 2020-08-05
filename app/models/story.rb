@@ -18,7 +18,7 @@
 # To be able to create many posts we want to have a draft state for them. we can do a published date
 # also draft
 class Story < ApplicationRecord
-  validates :author_id, :title, :body, presence: true
+  validates :author_id, :title, presence: true
 
   #NOTE: Add associations for this and the user 
   belongs_to :author,

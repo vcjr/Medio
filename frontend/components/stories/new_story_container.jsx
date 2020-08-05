@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { createStory } from '../../util/stories_api_util';
+import { createStory, debounceNewStory } from '../../actions/story_actions';
 import StoryEditor from './story_editor';
 
 
@@ -26,7 +26,8 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  publish: story => dispatch(createStory(story))
+  publish: story => dispatch(createStory(story)),
+  debounceNewStory: story => dispatch(debounceNewStory(story))
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(StoryEditor));

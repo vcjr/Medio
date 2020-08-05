@@ -35,7 +35,7 @@ class StoryEditor extends React.Component {
   handleBody(){
     return value => {
       this.setState({ body: value });
-      console.log(this.state);
+      // console.log(this.state);
     };
   }
 
@@ -46,14 +46,18 @@ class StoryEditor extends React.Component {
     if (this.props.pathName === "/stories/new-story") {
       return value => {
         this.setState({ title: value });
-        console.log(this.state)
+
         if (this.timerId){
           clearTimeout(this.timerId);
         }
-  
+
+        const newStory = Object.assign({}, this.state);
+
         this.timerId = setTimeout(() => {
           // This will be the function to call to make a ajax request to the backend
-          console.log('Send an ajax request');
+          // console.log('Send an ajax request');
+          // debugger
+          this.props.debounceNewStory(newStory);
         }, 2000);
       };
     } else {
@@ -65,7 +69,7 @@ class StoryEditor extends React.Component {
   }
 
   handleSubtitle(){
-    console.log(this.state);
+    // console.log(this.state);
     return value => this.setState({ subtitle: value });
   }
 
