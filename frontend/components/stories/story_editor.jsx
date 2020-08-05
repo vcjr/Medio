@@ -4,6 +4,7 @@ require('medium-editor/dist/css/themes/default.css');
 
 import { defaultOptions } from '../../util/story_editor_util';
 import Editor from 'react-medium-editor';
+import { Redirect } from 'react-router-dom';
 
 class StoryEditor extends React.Component {
   constructor(props){
@@ -26,8 +27,11 @@ class StoryEditor extends React.Component {
     }
   }
 
-  componentDidUpdate(prevProps, prevState){
+  componentDidUpdate(prevProps){
     if (prevProps.story !== this.props.story) {
+      if (this.props.story && this.props.story.author_id !== this.props.currentUserId) {
+        return this.props.history.push("/");
+      }
       this.setState(this.props.story);
     }
   }
