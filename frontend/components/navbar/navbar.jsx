@@ -23,7 +23,8 @@ class Navbar extends React.Component {
     const story = Object.assign({}, this.props.stories[storyId]);
     story.published = true;
     story.published_date = new Date();
-    return this.props.publish(story);
+    this.props.publish(story);
+    this.props.history.push(`/stories/${story.id}`);
   }
 
   // Nav Item

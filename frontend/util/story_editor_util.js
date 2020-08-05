@@ -54,3 +54,7 @@ export const createNewEditor = (mainElement, options = defaultOptions) => {
 export const createPlainNewEditor = (mainElement) => {
   return new MediumEditor(mainElement);
 };
+
+export const nonEditableEditor = (mainElement) => {
+  return new MediumEditor(mainElement, { disableEditing: true, spellcheck: false})
+}

@@ -454,3 +454,16 @@ hr {
   color: rgba(0,0,0,.84);
 }
 
+.main-splash-img {
+  display: flex;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  // width: 100vw;
+  width: 1500px;
+  
+}
+.main-splash-img img{
+  width: 100%;
+  margin-left: -30px;
+}
