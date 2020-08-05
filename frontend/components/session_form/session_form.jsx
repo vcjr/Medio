@@ -26,7 +26,8 @@ class SessionForm extends React.Component {
     };
 
     if (validateEmail(this.state.email)) {
-      return this.props.processForm(user);
+      // return this.props.processForm(user);
+      this.props.processForm(user);
     } else {
       return this.props.addError(["Invalid Email"]);
     }

@@ -73,7 +73,5 @@ export const debounceNewStory = story => dispatch => {
       errors => (dispatch(receiveErrors(errors.responseJSON)))
     ).then(story => {
       window.location.hash = `#/stories/${story.id}/edit`; 
-      // `/stories/${story.id}/edit`
-      // debugger;
     });
 };

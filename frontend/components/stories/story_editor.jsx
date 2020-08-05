@@ -63,7 +63,16 @@ class StoryEditor extends React.Component {
     } else {
       return value => {
         this.setState({ title: value });
-        // console.log(this.state);
+
+        if (this.timerId){
+          clearTimeout(this.timerId);
+        }
+
+        const updatedStory = Object.assign({}, this.state);
+
+        this.timerId = setTimeout(() => {
+          this.props.updateStory(updatedStory);
+        }, 2000);
       };
     }
   }

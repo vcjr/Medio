@@ -7,7 +7,7 @@ import SignupFormContainer from './session_form/signup_form_container';
 import NewStoryContainer from './stories/new_story_container';
 import UpdateStoryContainer from './stories/update_story_container';
 
-import { AuthRoute, ProtectedRoute } from '../util/route_util';
+import { AuthRoute, ProtectedRoute, AuthorProtectedRoute } from '../util/route_util';
 
 const App = () => (
   <div>
@@ -19,7 +19,9 @@ const App = () => (
         <AuthRoute exact path="/signin" component={SigninFormContainer} />
         <AuthRoute exact path="/signup" component={SignupFormContainer} />
         <ProtectedRoute exact path="/stories/new-story" component={NewStoryContainer}/>
+        {/* <AuthorProtectedRoute path="/stories/:storyId/edit" component={UpdateStoryContainer}/> */}
         <ProtectedRoute path="/stories/:storyId/edit" component={UpdateStoryContainer}/>
+
 
       <main>
       </main>

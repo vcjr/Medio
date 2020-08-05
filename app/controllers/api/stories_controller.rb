@@ -25,10 +25,17 @@ class Api::StoriesController < ApplicationController
     def update
       @story = Story.find_by(id: params[:id])
 
-      unless current_user && @story.author_id == current_user.id
-        render @story
+      if @story.author_id == current_user.id
+        if @story
+          @story.update(story_params)
+          render @story
+        else
+          render json: [""] 
+        end
       else
-        render json: @user.errors.full_messages, status: 422
+        render json: @errors ["You must be the author to update this story"]
+        # render json: @story, status: 400 ["You must be the author to update this story"]
+        # render json: @user.errors.full_messages, status: 422
       end
     end
 
