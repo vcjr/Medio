@@ -19,7 +19,9 @@ class ShowStory extends React.Component {
 
   componentDidUpdate(prevProps){
     if (prevProps.story !== this.props.story) {
-      if (this.props.story && this.props.story.published !== true) {
+      if ((this.props.currentUserId === this.props.story.author_id) && (this.props.story && this.props.story.published !== true)){
+        return this.props.history.push(`/stories/${this.props.storyId}/edit`);
+      } else if (this.props.story && this.props.story.published !== true) {
         return this.props.history.push("/");
       }
     }
