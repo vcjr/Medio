@@ -26,6 +26,9 @@ class Story < ApplicationRecord
   foreign_key: :author_id,
   class_name: :User
 
+  has_many_attached :images 
+  
+  
   def reading_time
     char_count = body.length
     word_count = body.split(" ").length;
