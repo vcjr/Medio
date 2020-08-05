@@ -18,7 +18,12 @@ class Navbar extends React.Component {
   handlePublish(e){
     e.preventDefault();
 
-    this.props.publish(this.props.stories[this.state.currentStoryId]);
+    const storyId = this.props.pathName.split("/")[2];
+    // debugger
+    const story = Object.assign({}, this.props.stories[storyId]);
+    story.published = true;
+    story.published_date = new Date();
+    return this.props.publish(story);
   }
 
   // Nav Item
@@ -58,7 +63,17 @@ class Navbar extends React.Component {
     const { currentUser, logout, publish } = this.props;
 
     const story_nav = () => {
-      if(currentUser && this.props.pathName === '/stories/new-story') {
+
+      const renderPublish = () => {
+        const editRoute = this.props.pathName.split("/").pop() === "edit" ? true : false;
+        if (this.props.pathName === '/stories/new-story' || editRoute ) {
+          return true
+        } else {
+          return false;
+        }
+      }
+
+      if(currentUser && renderPublish() ) {
         return (
           <>
             <button id="story-publish-btn" onClick={e => this.handlePublish(e)}>Publish</button>

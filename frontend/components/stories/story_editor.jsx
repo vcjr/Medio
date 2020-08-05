@@ -35,7 +35,16 @@ class StoryEditor extends React.Component {
   handleBody(){
     return value => {
       this.setState({ body: value });
-      // console.log(this.state);
+      
+      if (this.timerId){
+        clearTimeout(this.timerId);
+      }
+
+      const updatedStory = Object.assign({}, this.state);
+
+      this.timerId = setTimeout(() => {
+        this.props.updateStory(updatedStory);
+      }, 1000);
     };
   }
 
@@ -58,7 +67,7 @@ class StoryEditor extends React.Component {
           // console.log('Send an ajax request');
           // debugger
           this.props.debounceNewStory(newStory);
-        }, 2000);
+        }, 1500);
       };
     } else {
       return value => {
@@ -72,14 +81,25 @@ class StoryEditor extends React.Component {
 
         this.timerId = setTimeout(() => {
           this.props.updateStory(updatedStory);
-        }, 2000);
+        }, 1500);
       };
     }
   }
 
   handleSubtitle(){
-    // console.log(this.state);
-    return value => this.setState({ subtitle: value });
+    return value => { 
+      this.setState({ subtitle: value });
+
+      if (this.timerId){
+        clearTimeout(this.timerId);
+      }
+
+      const updatedStory = Object.assign({}, this.state);
+
+      this.timerId = setTimeout(() => {
+        this.props.updateStory(updatedStory);
+      }, 1500);
+    };
   }
 
   render() {
