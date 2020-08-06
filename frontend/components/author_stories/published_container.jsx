@@ -1,9 +1,8 @@
 import { connect } from 'react-redux';
 import Stories from './stories';
+import { withRouter } from 'react-router-dom';
 
-import {fetchStories} from '../../actions/story_actions';
-
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
 
   const user = state.entities.users[state.session.id];
   const userStories = user.authoredStoryId.map(id => {
@@ -12,16 +11,17 @@ const mapStateToProps = state => {
 
   const draftCount = userStories.filter(story => !story.published).length;
   const publishedCount = userStories.filter(story => story.published).length;
+  const pathName = ownProps.location.pathname.split("/").pop();
 
   return {
     stories: userStories.filter(story => story.published),
     draftCount: draftCount,
-    publishedCount: publishedCount
+    publishedCount: publishedCount,
+    pathName: pathName
   };
 };
 
 const mapDispatchToProps = dispatch => ({
-  fetchStories: () => dispatch(fetchStories())
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Stories);
+export default withRouter(connect(mapStateToProps, null)(Stories));

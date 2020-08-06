@@ -27,9 +27,6 @@ const App = () => (
         <ProtectedRoute exact path="/stories/public" component={PublishedContainer}/>
         <Route exact path="/stories/:storyId" component={ShowStoryContainer}/>
         <ProtectedRoute path="/stories/:storyId/edit" component={UpdateStoryContainer}/>
-
-      <main>
-      </main>
     </Switch>
   </div>
 );
