@@ -33,15 +33,15 @@ class Stories extends React.Component {
                 </div>
               </div>
               <div className="stories-switch-menu-link">
-                <Link id="drafts-link" to="/stories/drafts">Drafts {}</Link>
-                <Link id="published-link" to="/stories/public">Published</Link>
+                <Link id="drafts-link" to="/stories/drafts">Drafts {this.props.draftCount}</Link>
+                <Link id="published-link" to="/stories/public">Published {this.props.publishedCount}</Link>
               </div>
               <div className="stories-list">
                 <ul>
                   {
-                    this.props.stories.map(story => {
+                    this.props.stories.map((story, i) => {
                       return(
-                        <li>
+                        <li key={i}>
                           <h2>{story.title}</h2>
                           <p>{story.subtitle}</p>
                         </li>

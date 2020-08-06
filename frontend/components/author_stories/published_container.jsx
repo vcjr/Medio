@@ -10,8 +10,13 @@ const mapStateToProps = state => {
     return state.entities.stories[id];
   });
 
+  const draftCount = userStories.filter(story => !story.published).length;
+  const publishedCount = userStories.filter(story => story.published).length;
+
   return {
-    stories: userStories.filter(story => story.published) 
+    stories: userStories.filter(story => story.published),
+    draftCount: draftCount,
+    publishedCount: publishedCount
   };
 };
 
