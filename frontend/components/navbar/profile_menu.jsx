@@ -25,6 +25,9 @@ const ProfileMenu = props => {
             <li>
               <Link id="profile-menu-link-regular" to="/stories/new-story">New Story</Link>
             </li>
+            <li>
+              <Link id="profile-menu-link-regular" to="/stories/drafts">Stories</Link>
+            </li>
             <hr/>
             <li className="profile-menu-link-singout">
               <a id="profile-sign-out-link" to='/' onClick={props.logout}>
