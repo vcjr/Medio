@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import moment from 'moment';
 class Stories extends React.Component {
   constructor(props){
     super(props)
@@ -12,15 +12,21 @@ class Stories extends React.Component {
     
     if (story.published_date) {
       return (
-        <p id="span-text">Published on {story.published_date}</p>
+        <p id="span-text">Published on {moment(story.published_date).format("MMM Do YYYY")} <i className="fa fa-chevron-down"></i></p>
       );
     } else {
       return (
-        <p id="span-text">Last edited about {story.updated_at}</p>
+        <p id="span-text">Last edited about {moment(story.updated_at).fromNow()} <i className="fa fa-chevron-down"></i></p>
       );
     }
-
   };
+
+  sanitizeText(text) {
+  return text.replace(/<[^>]*>/g, ' ')
+                .replace(/\s{2,}/g, ' ')
+                .replace(/&nbsp;/g, '')
+                .trim();
+  }
 
   render () {
     const { pathName } = this.props;
@@ -45,8 +51,8 @@ class Stories extends React.Component {
                   this.props.stories.map((story, i) => {
                     return(
                       <li key={i}>
-                          <h3><Link to={`/stories/${story.id}`} id="inner-link">{story.title}</Link></h3>
-                          <p><Link to={`/stories/${story.id}`} id="inner-link">{story.subtitle}</Link></p>
+                          <h3><Link to={`/stories/${story.id}`} id="inner-link">{this.sanitizeText(story.title)}</Link></h3>
+                          <p><Link to={`/stories/${story.id}`} id="inner-link">{this.sanitizeText(story.subtitle)}</Link></p>
                           <span>{ this.updateSpan(story) }</span>
                       </li>
                     );
