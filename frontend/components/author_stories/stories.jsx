@@ -17,13 +17,13 @@ class Stories extends React.Component {
             <div className="top-stories-header">
               <h1>Your Stories</h1>
               <div className="top-stories-header-links">
-                <a id="linkedIn-link" src="https://www.linkedin.com/in/victorcrispin/" alt="Victor Crispin's LinkedIn">Hire Me</a>
+                <a id="linkedIn-link" href="https://www.linkedin.com/in/victorcrispin/" alt="Victor Crispin's LinkedIn">Hire Me</a>
                 <Link id="write-story-link" to="/stories/new-story">Write a story</Link>
               </div>
             </div>
             <div className="stories-switch-menu-link">
-              <Link id={ pathName === "drafts" ? "link-active drafts-link" : "drafts-link"} to="/stories/drafts">Drafts {this.props.draftCount}</Link>
-              <Link id={ pathName === "public" ? "link-active published-link" : "published-link"} to="/stories/public">Published {this.props.publishedCount}</Link>
+              <Link className={ pathName === "drafts" ? "link-active" : ""} to="/stories/drafts">Drafts {this.props.draftCount}</Link>
+              <Link className={ pathName === "public" ? "link-active" : ""} to="/stories/public">Published {this.props.publishedCount}</Link>
             </div>
             <div className="stories-list">
               <ul>
@@ -31,7 +31,7 @@ class Stories extends React.Component {
                   this.props.stories.map((story, i) => {
                     return(
                       <li key={i}>
-                        <h2>{story.title}</h2>
+                        <h3>{story.title}</h3>
                         <p>{story.subtitle}</p>
                       </li>
                     );
