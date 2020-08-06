@@ -119,7 +119,7 @@ class StoryEditor extends React.Component {
             text={title}
             // text={this.state.title}
             onChange={this.handleTitle()}
-            options={{toolbar: {buttons: ['h2', 'h3', 'quote']}, placeholder: {text: 'Title', hideOnClick: false}}}
+            options={{toolbar: {buttons: ['h2', 'h3', 'justifyLeft' ,'justifyCenter', 'justifyRight']}, placeholder: {text: 'Title', hideOnClick: false}}}
           />
           {/* // Subtitle Editor */}
           <Editor 
@@ -128,7 +128,7 @@ class StoryEditor extends React.Component {
             text={subtitle}
             // text={this.state.subtitle}
             onChange={this.handleSubtitle()}
-            options={{toolbar: {buttons: ['bold', 'italic', ]}, placeholder: {text: 'Subtitle', hideOnClick: false}}}
+            options={{toolbar: {buttons: ['h3', 'h4', 'bold', 'italic', "underline", 'justifyLeft' ,'justifyCenter', 'justifyRight' ]}, placeholder: {text: 'Subtitle', hideOnClick: false}}}
           />
 
           {/* // Main Article Editor */}

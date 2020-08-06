@@ -6,25 +6,43 @@ main {
   flex-direction: column;
 }
 .story-title {
-  // background-color: green;
   padding-top: 10px;
   font-size: 42px;
-  // margin: 10px;
   width: 700px;
 }
 
 .story-subtitle {
-  // background-color: green;
   padding-top: 26px;
-  // margin: 10px;
   width: 700px;
+  font-family: "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Arial,sans-serif;
+}
+
+.story-subtitle h3 {
+  font-size: 34px;
+}
+
+.story-subtitle h4 {
+  font-size: 30px;
 }
 
 story-body {
-  // background-color: blue;
-  padding: 10px;
-  margin: 10px;
   width: 700px;
+}
+
+story-body h1 {
+  font-size: 34px;
+}
+
+story-body h2 {
+  font-size: 30px;
+}
+
+
+story-body p {
+  font-size: 21px;
+  margin-top: 29px;
+  line-height: 1.58;
+  letter-spacing: -.003em;
 }
 
 #story-publish-btn {

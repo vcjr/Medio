@@ -5,6 +5,7 @@ export const defaultOptions = {
     buttons: [
         'bold',
         'italic',
+        'anchor',
         {
             name: 'h1',
             action: 'append-h2',
@@ -28,13 +29,11 @@ export const defaultOptions = {
             }
         },
         'justifyCenter',
-        'quote',
-        'anchor',
         'image'
     ]
   },
   placeholder: {
-    text: 'Tell your story',
+    text: 'Tell your story...',
     hideOnClick: false
   },
   paste: {

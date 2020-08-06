@@ -24,6 +24,7 @@
     "css-loader": "^4.2.0",
     "file-loader": "^6.0.0",
     "medium-editor": "^5.23.3",
+    "medium-editor-insert-plugin": "^2.5.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-medium-editor": "^1.8.1",
