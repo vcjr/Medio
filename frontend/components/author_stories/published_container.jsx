@@ -1,6 +1,8 @@
 import { connect } from 'react-redux';
 import Stories from './stories';
 
+import {fetchStories} from '../../actions/story_actions';
+
 const mapStateToProps = state => {
 
   const user = state.entities.users[state.session.id];
@@ -8,24 +10,13 @@ const mapStateToProps = state => {
     return state.entities.stories[id];
   });
 
-  const drafts = [];
-  const published = [];
-
-  userStories.forEach(story => {
-    if(story.published){
-      published.push(story);
-    } else {
-      drafts.push(story);
-    }
-  });
-
   return {
-    publishedStories: published 
+    stories: userStories.filter(story => story.published) 
   };
 };
 
 const mapDispatchToProps = dispatch => ({
-
+  fetchStories: () => dispatch(fetchStories())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Stories);

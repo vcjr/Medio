@@ -15,7 +15,7 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 const App = () => (
   <div>
-      <header>
+      <header className="nav-stories-route-shadow">
         <NavbarContainer />
       </header>
       <Switch>  

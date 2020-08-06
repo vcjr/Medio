@@ -4,10 +4,6 @@ import ReactDom from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
 
-//! TESTING START ~ REMOVE AFTER DONE !!!!!!!
-// import { login, logout } from './actions/session_actions';
-//! TESTING END   ~ REMOVE AFTER DONE !!!!!!!
-
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
   let store;
@@ -15,24 +11,20 @@ document.addEventListener('DOMContentLoaded', () => {
   if (window.currentUser) {
     const preloadedState = {
       entities: {
-        users: { [window.currentUser.id]: window.currentUser }
+        users: { [window.currentUser.id]: window.currentUser },
+        stories: window.currentUserStories 
       },
       session: { id: window.currentUser.id }
     };
 
     store = configureStore(preloadedState);
     delete window.currentUser;
+    delete window.currentUserStories;
   } else {
     store = configureStore();
   }
 
-  //! TESTING ONLY ~ REMOVE AFTER DONE !!!!!!!
-  // window.signup = signup;
-  // window.login = login;
-  // window.logout = logout;
-  // window.getState = store.getState;
-  // window.dispatch = store.dispatch;
-  //! TESTING END   ~ REMOVE AFTER DONE !!!!!!!
-
+  window.getState = store.getState;
+  
   ReactDom.render(<Root store={store}/>, root);
 });

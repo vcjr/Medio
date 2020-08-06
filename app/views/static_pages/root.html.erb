@@ -1,10 +1,15 @@
 <% if logged_in? %>
   <script id="bootstrap-current-user" type='text/javascript'>
-    <%# const user = <%= render('api/users/user.json.jbuilder',
-    user: current_user).html_safe %>
     window.currentUser = <%= render('api/users/user.json.jbuilder',
     user: current_user).html_safe %>
-  </script>
-<% end %>
+    
+    window.currentUserStories = <%= render('api/stories/index.json.jbuilder',
+    stories: current_user.stories).html_safe %>
+  </script> 
+  <%# <script id="bootstrap-current-user" type='text/javascript'>
+    window.currentUserStories = <%= render('api/stories/index.json.jbuilder',
+    stories: current_user.stories).html_safe %>
+  <%# </script> %>
 
+<% end %>
 <div id='root'></div>
