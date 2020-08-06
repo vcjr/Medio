@@ -29,12 +29,13 @@ export const defaultOptions = {
         },
         'justifyCenter',
         'quote',
-        'anchor'
+        'anchor',
+        'image'
     ]
   },
   placeholder: {
     text: 'Tell your story',
-    hideOnClick: true
+    hideOnClick: false
   },
   paste: {
     forcePlainText: true,
@@ -44,7 +45,8 @@ export const defaultOptions = {
     cleanTags: ['meta'],
     unwrapTags: []
   },
-  autoLink: true
+  autoLink: true,
+  imageDragging: false
 };
 
 export const createNewEditor = (mainElement, options = defaultOptions) => {
