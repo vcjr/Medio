@@ -7,9 +7,10 @@ export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
 export const RECEIVE_SESSION_ERROR = 'RECEIVE_SESSION_ERROR';
 
 // NOTE: Regular Action Creators
-const receiveCurrentUser = currentUser => ({
+const receiveCurrentUser = payload => ({
   type: RECEIVE_CURRENT_USER,
-  currentUser
+  currentUser: payload.user,
+  stories: payload.stories
 });
 
 const logoutCurrentUser = () => ({

@@ -23,7 +23,7 @@ const ProfileMenu = props => {
             </li>
             <hr/>
             <li>
-              <Link id="profile-menu-link-regular" to="/stories/new-story">New Story</Link>
+              <Link id="profile-menu-link-regular" to="/stories/new-story">New story</Link>
             </li>
             <li>
               <Link id="profile-menu-link-regular" to="/stories/drafts">Stories</Link>

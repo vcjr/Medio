@@ -65,14 +65,3 @@ class Api::StoriesController < ApplicationController
     end
 
 end
-
-# t.integer "author_id", null: false
-#     t.text "title", null: false
-#     t.text "body", null: false
-#     t.text "title_draft"
-#     t.text "body_draft"
-#     t.datetime "created_at", null: false
-#     t.datetime "updated_at", null: false
-#     t.date "published_date"
-#     t.text "subtitle"
-#     t.boolean "published"
