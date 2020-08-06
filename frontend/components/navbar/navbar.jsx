@@ -19,7 +19,6 @@ class Navbar extends React.Component {
     e.preventDefault();
 
     const storyId = this.props.pathName.split("/")[2];
-    // debugger
     const story = Object.assign({}, this.props.stories[storyId]);
     story.published = true;
     story.published_date = new Date();
@@ -36,7 +35,7 @@ class Navbar extends React.Component {
         <li className="profile-picture-menu" id="profile-menu-popup">
           <img className='profile-pic' 
             id='profile-pic-small' 
-            src={window.profileImg}
+            src={props.profileImage}
             onClick={() => setOpen(!open)}
           />
 
@@ -91,12 +90,12 @@ class Navbar extends React.Component {
       }
     };
 
-    const right_nav = () => {
+    const right_nav = (profileImage) => {
       if (currentUser) {
         return (
           <> 
-            <this.NavItem>
-              <ProfileMenu currentUser={currentUser} logout={logout} />
+            <this.NavItem profileImage={profileImage}>
+              <ProfileMenu profileImage={profileImage} currentUser={currentUser} logout={logout} />
             </this.NavItem>
           </>
         );
@@ -117,7 +116,7 @@ class Navbar extends React.Component {
           <ul className="right-nav">
             { story_nav() }
             <li><a href="https://github.com/vcjr/"><i className="fa fa-github" id="github-icon"></i></a></li>
-            { right_nav() }
+            { right_nav(this.props.profileImage) }
           </ul>
         </div>
       </nav>

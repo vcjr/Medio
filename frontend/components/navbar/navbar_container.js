@@ -4,11 +4,19 @@ import { logout } from '../../actions/session_actions';
 import { updateStory } from '../../actions/story_actions';
 import Navbar from './navbar';
 
-const mapStateToProps = ({ session, entities: { users, stories }}, ownProps) => ({
-  currentUser: users[session.id],
-  pathName: ownProps.location.pathname,
-  stories: stories
-});
+const mapStateToProps = ({ session, entities: { users, stories }}, ownProps) => {
+  let profileImage = "";
+  if (session.id && users[session.id].photoUrl){
+    profileImage = users[session.id].photoUrl;
+  }
+
+  return {
+    currentUser: users[session.id],
+    profileImage: profileImage,
+    pathName: ownProps.location.pathname,
+    stories: stories
+  }
+};
 
 const mapDispatchToProps = dispatch => ({
   logout: () => dispatch(logout()),

@@ -14,7 +14,7 @@ const ProfileMenu = props => {
           <ul className="profile-menu-link-container">
             <li id="profile-info">
               <img className='profile-pic'  
-                src={window.profileImg} 
+                src={props.profileImage} 
               />
               <div id="profile-info-name">
                 <span>{props.currentUser.name}</span>

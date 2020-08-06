@@ -19,6 +19,7 @@ class User < ApplicationRecord
   attr_reader :password
 
   after_initialize :ensure_session_token
+  before_save :grab_profile_image
 
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)
@@ -50,6 +51,12 @@ class User < ApplicationRecord
 
   def self.generate_session_token
     SecureRandom::urlsafe_base64
+  end
+
+  def grab_profile_image
+    profile_image = File.open('app/assets/images/profile-image.jpg')
+    self.profile_picture.attach(io: profile_image, filename: "#{self.name}_profile_image.jpg")
+
   end
 
   has_many :stories,
