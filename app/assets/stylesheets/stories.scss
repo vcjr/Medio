@@ -96,6 +96,7 @@
 
 .stories-list ul {
   list-style: none;
+  width: 100%;
 }
 
 .stories-list li {
@@ -117,4 +118,13 @@
 }
 .stories-list li:last-child {
   border-bottom: 1px solid rgba(0, 0, 0, 0.22);
+}
+
+#inner-link {
+  color: inherit;
+  font-family: inherit;
+}
+
+#span-text {
+  font-size: 12px;
 }

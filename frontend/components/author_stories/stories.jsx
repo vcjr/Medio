@@ -8,6 +8,20 @@ class Stories extends React.Component {
     this.state = {};
   } 
 
+  updateSpan(story) {
+    
+    if (story.published_date) {
+      return (
+        <p id="span-text">Published on {story.published_date}</p>
+      );
+    } else {
+      return (
+        <p id="span-text">Last edited about {story.updated_at}</p>
+      );
+    }
+
+  };
+
   render () {
     const { pathName } = this.props;
 
@@ -31,8 +45,9 @@ class Stories extends React.Component {
                   this.props.stories.map((story, i) => {
                     return(
                       <li key={i}>
-                        <h3>{story.title}</h3>
-                        <p>{story.subtitle}</p>
+                          <h3><Link to={`/stories/${story.id}`} id="inner-link">{story.title}</Link></h3>
+                          <p><Link to={`/stories/${story.id}`} id="inner-link">{story.subtitle}</Link></p>
+                          <span>{ this.updateSpan(story) }</span>
                       </li>
                     );
                   })
