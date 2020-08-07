@@ -1,12 +1,12 @@
-# Medio
-Your home to be in the middle of what you care about. Find new quality stories each day that interest you. Keep track of your favorite writers, and share the stories that impacted you most. Simple, sleek and immersive reading experience. No pesky ads or distractions so you can enjoy your content as you see fit. 
+# Medio  <img src="https://medio-app-seed.s3.amazonaws.com/mediologo.png" alt="Medio Logo" style=" padding-left: 100px; align: right;" />
+Your home to be in the middle of what you care about. Find quality stories each day that interest you. Keep track of your favorite writers, and share the stories that impact you most. Simple, sleek and immersive reading/writting experience. No pesky ads or distractions so you can enjoy your content as you see fit. 
 
 ## Medio Features
 
 ### Membership Management
 
-* Free Membership
-
+* Membership
+    
     * Easy account Login/Create using E-mail
 
     * Ability to Login/Create Account using Google/Facebook API
@@ -14,14 +14,6 @@ Your home to be in the middle of what you care about. Find new quality stories e
     * Ready Demo account login ability.
     
     * Users without membership can't create stories, give claps, comment on stories, or use the full extension of the bookmark and highlight features.
-
-    * Can see 5 closed stories for free monthly.
-
-* Paid Membership
-
-    * All features that free membership provides.
-
-    * Ability to read all stories available in the platform, no more monthly limits on closed stories.
 
 
 ### Hosting on Heroku
@@ -33,7 +25,16 @@ Your home to be in the middle of what you care about. Find new quality stories e
 ### Stories
 
 * Beautifully formatted and styled story pages.
+
 * Logged in members can create, format, edit, and post new stories.
+
+* Logged in members can view other members published stories.
+
+* Author of a story can view/edit unpublished stories as a draft.
+
+* Medio dynamically saves a new story and redirects to it's edit page after changing the title.
+
+* While editing a story, Medio will save changes to the backend and keep your progress as you type.
 
 ### Responses
 
