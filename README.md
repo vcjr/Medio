@@ -1,5 +1,5 @@
-# Medio  <img src="https://medio-app-seed.s3.amazonaws.com/mediologo.png" alt="Medio Logo" style=" padding-left: 100px; align: right;" />
-Your home to be in the middle of what you care about. Find quality stories each day that interest you. Keep track of your favorite writers, and share the stories that impact you most. Simple, sleek and immersive reading/writting experience. No pesky ads or distractions so you can enjoy your content as you see fit. 
+# Medio  
+<img src="https://medio-app-seed.s3.amazonaws.com/mediologo.png" height="35" align="right" alt="Medio Logo"/>Your home to be in the middle of what you care about. Find quality stories each day that interest you. Keep track of your favorite writers, and share the stories that impact you most. Simple, sleek and immersive reading/writting experience. No pesky ads or distractions so you can enjoy your content as you see fit. 
 
 ## Medio Features
 
