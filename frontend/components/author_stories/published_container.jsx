@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import Stories from './stories';
 import { withRouter } from 'react-router-dom';
+import { deleteStory } from '../../actions/story_actions';
 
 const mapStateToProps = (state, ownProps) => {
 
@@ -22,6 +23,7 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = dispatch => ({
+  deleteStory: storyId => dispatch(deleteStory(storyId))
 });
 
-export default withRouter(connect(mapStateToProps, null)(Stories));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Stories));

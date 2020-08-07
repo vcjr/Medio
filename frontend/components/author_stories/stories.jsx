@@ -12,20 +12,40 @@ class Stories extends React.Component {
     
     if (story.published_date) {
       return (
-        <p id="span-text">Published on {moment(story.published_date).format("MMM Do YYYY")} <i className="fa fa-chevron-down"></i></p>
+        <p id="span-text">Published on {moment(story.published_date).format("MMM Do YYYY")} <i className="fa fa-chevron-down mini-dropdown"><div className="mini-dropdown-content">{this.spanLinks(story)}</div></i></p>
       );
     } else {
       return (
-        <p id="span-text">Last edited about {moment(story.updated_at).fromNow()} <i className="fa fa-chevron-down"></i></p>
+        <p id="span-text">Last edited about {moment(story.updated_at).fromNow()} <i className="fa fa-chevron-down mini-dropdown"><div className="mini-dropdown-content">{this.spanLinks(story)}</div></i></p>
       );
     }
   };
 
+  spanLinks(story) {
+    if (this.props.pathName === 'drafts') {
+      return (
+        <div>
+          <Link to={`/stories/${story.id}/edit`}>Edit draft</Link>
+          <a onClick={this.props.deleteStory(story.id)} to={`/stories/drafts`}>Delete draft</a>
+        </div>
+      );
+    } else {
+        return (
+          <div>
+            <Link to={`/stories/${story.id}/edit`}>Edit story</Link>
+            <a onClick={this.props.deleteStory(story.id)} to={`/stories/drafts`}>Delete story</a>
+          </div>
+        );
+    }
+  }
+
   sanitizeText(text) {
-  return text.replace(/<[^>]*>/g, ' ')
-                .replace(/\s{2,}/g, ' ')
-                .replace(/&nbsp;/g, '')
-                .trim();
+  return (
+    text.replace(/<[^>]*>/g, ' ')
+      .replace(/\s{2,}/g, ' ')
+      .replace(/&nbsp;/g, '')
+      .trim()
+    )
   }
 
   render () {

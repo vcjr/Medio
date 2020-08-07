@@ -128,3 +128,37 @@
 #span-text {
   font-size: 13px;
 }
+
+#span-text i {
+  padding: 8px;
+}
+
+.mini-dropdown {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.mini-dropdown-content {
+  position: absolute;
+  background-color: white;
+  display: none;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  justify-content: center;
+  align-items: center;
+  left: -50px;
+  width: 120px;
+  border-radius: 4px;
+  box-shadow: rgb(230, 230, 230) 0px 1px 4px;
+  font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
+}
+
+.mini-dropdown:hover .mini-dropdown-content {
+  display: flex;
+}
+
+.mini-dropdown-content a {
+  padding: 8px 20px;
+  display: block;
+  font-family: inherit;
+}
