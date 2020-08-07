@@ -36,6 +36,8 @@
 
 * While editing a story, Medio will save changes to the backend and keep your progress as you type.
 
+## Future Features 
+
 ### Responses
 
 * Logged in members can respond(comment) on their favorite stories.
