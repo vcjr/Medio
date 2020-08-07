@@ -26,6 +26,7 @@ $color-magenta-dim: rgb(136, 3, 136);
 
 @import 'font-awesome';
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import '../../../node_modules/medium-editor/src/sass/medium-editor.scss';
 
 * {
   box-sizing: border-box;

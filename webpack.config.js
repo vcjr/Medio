@@ -33,12 +33,3 @@ module.exports = {
     extensions: ['.js', '.jsx', '*']
   },
 };
-
-// test: [/\.jsx?$/],
-// exclude: /(node_modules)/,
-// use: {
-//   loader: 'babel-loader',
-//   query: {
-//     presets: ['@babel/env', '@babel/react']
-//   }
-// },
